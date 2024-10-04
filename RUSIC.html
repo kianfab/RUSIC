@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RUSIC MUSIC</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #A9A9A9;
+        }
+
+        header {
+            background-color: black;
+            color: white;
+            padding: 1em 2em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            flex: 1;
+        }
+
+        .logo-container img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .search-bar {
+            flex: 2;
+            text-align: center;
+        }
+
+        .search-bar input[type="text"] {
+            width: 50%;
+            padding: 10px;
+            font-size: 1em;
+            border-radius: 25px;
+            border: none;
+            outline: none;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1em;
+            background-color: #A9A9A9;
+            color: white;
+        }
+
+        button {
+            background-color: #555;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #777;
+        }
+
+        /* Layout for music section */
+        .music-layout {
+            display: flex; /* Use flexbox for layout */
+            justify-content: space-between; /* Space between two sections */
+            align-items: flex-start; /* Align items at the start */
+            margin: 2em 1em; /* Margin around the section */
+        }
+
+        /* Music Section: Top Music and Latest Songs */
+        .music-section {
+            padding: 1em;
+            margin: 1em 0;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 300px; /* Set a max width for music section */
+        }
+
+        .top-music,
+        .latest-music {
+            padding: 0.5em;
+            text-align: center;
+        }
+
+        .top-music {
+            border-bottom: 1px solid #ddd;
+        }
+
+        .music-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .music-list li {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+            cursor: pointer;
+        }
+
+        .music-list li:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Grid layout for music boxes */
+        .music-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* Four columns */
+            gap: 1em; /* Space between boxes */
+            padding: 1em;
+            max-width: 800px; /* Limit the width of the grid */
+            margin: auto; /* Center the grid */
+        }
+
+        .music-box {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 0.5em; /* Reduced padding for smaller width */
+            width: 200px; /* Set width to 200px */
+            height: 300px; /* Set height to 300px */
+            margin: auto; /* Center align the boxes */
+            text-decoration: none; /* Remove underline from links */
+            color: black; /* Change text color to black */
+        }
+
+        .music-box img {
+            max-width: 100%;
+            max-height: 180px; /* Set max height to ensure image fits */
+            border-radius: 10px;
+        }
+
+        .music-box p {
+            margin-top: 0.5em;
+            font-size: 0.9em; /* Slightly smaller font */
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Left: Logo + Image -->
+        <div class="logo-container">
+            <img src="your-profile-image.jpg" alt="Profile Photo">
+            <div class="logo">RUSIC</div>
+        </div>
+
+        <!-- Middle: Search bar -->
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search for music, artists..." oninput="filterSongs()">
+        </div>
+
+        <!-- Right: Contact link -->
+        <div class="nav-links">
+            <nav>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Music Layout: Top Music, Latest Songs, and Music Boxes -->
+    <div class="music-layout">
+        <!-- Music Section: Top Music and Latest Songs -->
+        <section class="music-section">
+            <div class="top-music">
+                <h2>Top Music</h2>
+                <ul class="music-list" id="topMusicList">
+                    <li>Top Song 1</li>
+                    <li>Top Song 2</li>
+                    <li>Top Song 3</li>
+                    <li>Top Song 4</li>
+                </ul>
+            </div>
+
+            <div class="latest-music">
+                <h2>Latest Songs</h2>
+                <ul class="music-list" id="latestMusicList">
+                    <li>Latest Song 1</li>
+                    <li>Latest Song 2</li>
+                    <li>Latest Song 3</li>
+                    <li>Latest Song 4</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Music Grid: Boxes with Photos -->
+        <section class="music-grid">
+            <a href="IK.html" class="music-box">
+                <img src="your-image-1.jpg" alt="Song Cover">
+                <p>Ish kevin</p>
+            </a>
+            <a href="LJ.html" class="music-box">
+                <img src="your-image-2.jpg" alt="Song Cover">
+                <p>Logan joe</p>
+            </a>
+            <a href="BT.html" class="music-box">
+                <img src="your-image-3.jpg" alt="Song Cover">
+                <p>B-threy</p>
+            </a>
+            <a href="ZT.html" class="music-box">
+                <img src="your-image-4.jpg" alt="Song Cover">
+                <p>Zeo trap</p>
+            </a>
+            <a href="HL.html" class="music-box">
+                <img src="your-image-5.jpg" alt="Song Cover">
+                <p>Hollix</p>
+            </a>
+            <a href="KK.html" class="music-box">
+                <img src="your-image-6.jpg" alt="Song Cover">
+                <p>Kivumbi king</p>
+            </a>
+            <a href="JK.html" class="music-box">
+                <img src="your-image-7.jpg" alt="Song Cover">
+                <p>Juno kizigenza</p>
+            </a>
+            <a href="BM.html" class="music-box">
+                <img src="your-image-8.jpg" alt="Song Cover">
+                <p>Bruce melody</p>
+            </a>
+            <!-- Add more boxes as needed -->
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy 2024 | Made by KIANFAB | All rights reserved<br>SPONSORED by <a href="https://inzozimedia.github.io/INZOZI-MED-WEB/" style="color: green; text-decoration: underline;">INZOZI MED WEB</a></p>
+    </footer>
+
+    <script>
+        // Fetch songs from the server and display them
+        async function loadSongs() {
+            const response = await fetch('/songs');
+            const songs = await response.json();
+            const songList = document.getElementById('songList');
+
+            songs.forEach(song => {
+                const songElement = document.createElement('div');
+                songElement.textContent = song;
+                songElement.addEventListener('click', () => {
+                    const audioPlayer = document.getElementById('audioPlayer');
+                    const audioSource = document.getElementById('audioSource');
+                    audioSource.src = `/uploads/${song}`;
+                    audioPlayer.load();
+                    audioPlayer.play();
+                });
+                songList.appendChild(songElement);
+            });
+        }
+
+        // Load songs when the page is loaded
+        window.onload = loadSongs;
+
+        // Function to filter songs based on input
+        function filterSongs() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const topMusicList = document.getElementById('topMusicList');
+            const latestMusicList = document.getElementById('latestMusicList');
+
+            // Get all song titles
+            const topSongs = Array.from(topMusicList.getElementsByTagName('li'));
+            const latestSongs = Array.from(latestMusicList.getElementsByTagName('li'));
+
+            // Filter Top Music
+            topSongs.forEach(song => {
+                const text = song.textContent.toLowerCase();
+                song.style.display = text.includes(input) ? 'list-item' : 'none'; // Show or hide
+            });
+
+            // Filter Latest Songs
+            latestSongs.forEach(song => {
+                const text = song.textContent.toLowerCase();
+                song.style.display = text.includes(input) ? 'list-item' : 'none'; // Show or hide
+            });
+        }
+    </script>
+</body>
+</html>
